@@ -25,5 +25,12 @@
             <div class="size-24 rounded-lg bg-rose-900"></div>
         </div>
         <p class="text-4xl font-bold">Probando la nueva fuente.</p>
+        <div class="p-8">
+            <ul>
+                @foreach ($products as $product)
+                    <li>{{ $product->name }}</li>
+                @endforeach
+            </ul>
+        </div>
     </body>
 </html>
