@@ -9,6 +9,7 @@
     /* Colors */
     --color-*: initial;
 
+    --color-white: hsl(0, 0%, 100%);
     --color-red: hsl(14, 86%, 42%);
     --color-green: hsl(159, 69%, 38%);
 
@@ -27,4 +28,6 @@
     --font-weight-regular: 400;
     --font-weight-medium: 600;
     --font-weight-bold: 700;
+
+    --container-8xl: 90rem;
 }

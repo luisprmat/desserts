@@ -13,24 +13,15 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
-        <div class="flex gap-4 p-8">
-            <div class="size-24 rounded-lg bg-red"></div>
-            <div class="size-24 rounded-lg bg-green"></div>
-            <div class="size-24 rounded-lg bg-rose-50"></div>
-            <div class="size-24 rounded-lg bg-rose-100"></div>
-            <div class="size-24 rounded-lg bg-rose-300"></div>
-            <div class="size-24 rounded-lg bg-rose-400"></div>
-            <div class="size-24 rounded-lg bg-rose-500"></div>
-            <div class="size-24 rounded-lg bg-rose-900"></div>
-        </div>
-        <p class="text-4xl font-bold">Probando la nueva fuente.</p>
-        <div class="p-8">
-            <ul>
+    <body class="max-w-8xl mx-auto px-4 sm:px-6 gap-8 lg:px-8 grid md:grid-cols-[1fr_400px] bg-rose-50 py-16">
+        <main>
+            <h1 class="text-4xl font-bold">Desserts</h1>
+            <ul class="mt-10 grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
                 @foreach ($products as $product)
-                    <li>{{ $product->name }}</li>
+                    <li class="bg-rose-100 aspect-square rounded-xl"></li>
                 @endforeach
             </ul>
-        </div>
+        </main>
+        <aside class="bg-white p-6 h-80">Shopping Cart</aside>
     </body>
 </html>
