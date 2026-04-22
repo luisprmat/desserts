@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Frontend Mentor | Product list with cart</title>
+        <title>Frontend Mentor | {{ __('Product list with cart') }}</title>
 
         {{-- Fonts --}}
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,13 +15,13 @@
     </head>
     <body class="max-w-8xl mx-auto px-4 sm:px-6 gap-8 lg:px-8 grid md:grid-cols-[1fr_400px] bg-rose-50 py-16">
         <main>
-            <h1 class="text-4xl font-bold">Desserts</h1>
+            <h1 class="text-4xl font-bold">{{ __('Desserts') }}</h1>
             <ul class="mt-10 grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
                 @foreach ($products as $product)
                     <x-product :product="$product" />
                 @endforeach
             </ul>
         </main>
-        <aside class="bg-white p-6 h-80">Shopping Cart</aside>
+        <aside class="bg-white p-6 h-80">{{ __('Shopping Cart') }}</aside>
     </body>
 </html>
