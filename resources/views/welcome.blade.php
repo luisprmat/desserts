@@ -15,8 +15,8 @@
     </head>
     <body class="max-w-8xl mx-auto px-4 sm:px-6 gap-8 lg:px-8 grid md:grid-cols-[1fr_400px] bg-rose-50 py-16">
         <main>
-            <h1 class="text-4xl font-bold">{{ __('Desserts') }}</h1>
-            <ul class="mt-10 grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+            <h1 class="text-5xl font-bold">{{ __('Desserts') }}</h1>
+            <ul class="mt-10 grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                 @foreach ($products as $product)
                     <x-product :product="$product" />
                 @endforeach
