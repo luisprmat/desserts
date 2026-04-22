@@ -18,7 +18,7 @@
             <h1 class="text-4xl font-bold">Desserts</h1>
             <ul class="mt-10 grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
                 @foreach ($products as $product)
-                    <li class="bg-rose-100 aspect-square rounded-xl"></li>
+                    <x-product :product="$product" />
                 @endforeach
             </ul>
         </main>
