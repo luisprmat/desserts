@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Frontend Mentor | {{ __('Product list with cart') }}</title>
+    <title>Frontend Mentor | {{ __('Product list with cart') }}</title>
 
-        {{-- Fonts --}}
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    {{-- Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet"
+    />
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="max-w-8xl mx-auto px-4 sm:px-6 gap-8 lg:px-8 grid md:grid-cols-[1fr_400px] bg-rose-50 py-16">
-        <main>
-            <h1 class="text-5xl font-bold">{{ __('Desserts') }}</h1>
-            <ul class="mt-10 grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                @foreach ($products as $product)
-                    <x-product :product="$product" />
-                @endforeach
-            </ul>
-        </main>
-        <aside class="bg-white p-6 h-80">{{ __('Shopping Cart') }}</aside>
-    </body>
+    @vite (['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="max-w-8xl mx-auto grid gap-8 bg-rose-50 px-4 py-16 sm:px-6 md:grid-cols-[1fr_400px] lg:px-8">
+    <main>
+        <h1 class="text-5xl font-bold">{{ __('Desserts') }}</h1>
+        <ul class="mt-10 grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+            @foreach ($products as $product)
+                <x-product :product="$product" />
+            @endforeach
+        </ul>
+    </main>
+    <aside class="h-80 bg-white p-6">{{ __('Shopping Cart') }}</aside>
+</body>
 </html>

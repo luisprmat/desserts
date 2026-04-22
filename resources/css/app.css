@@ -21,8 +21,9 @@
     --color-rose-900: hsl(14, 65%, 9%);
 
     /* Font Families */
-    --font-sans: 'Red Hat Text', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans:
+        'Red Hat Text', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
 
     --font-weight-*: initial;
     --font-weight-regular: 400;
