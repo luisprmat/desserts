@@ -39,11 +39,5 @@
         {{ __('Confirm Order') }}
     </button>
 
-    <div
-        class="m-auto w-120 max-w-full translate-y-1 rounded-lg bg-white p-8 opacity-0 transition-discrete duration-200 backdrop:bg-black/50 backdrop:opacity-0 backdrop:backdrop-blur-sm backdrop:transition-[opacity,display] open:translate-y-0 open:opacity-100 open:backdrop:opacity-100 starting:scale-95 starting:open:opacity-0 starting:open:backdrop:opacity-0"
-        popover
-        id="order-confirmation"
-    >
-        <div>i'm a cool popover</div>
-    </div>
+    <x-cart.confirmation :$cart />
 </div>
