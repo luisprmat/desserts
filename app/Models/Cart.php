@@ -23,6 +23,11 @@ class Cart extends Model
         return $this->hasMany(CartItem::class);
     }
 
+    public function totalQuantity(): int
+    {
+        return $this->items->sum('quantity');
+    }
+
     public static function ifExists(): ?static
     {
         return self::with('items.product')
