@@ -31,4 +31,11 @@ class CartController extends Controller
 
         return back();
     }
+
+    public function emptyCart()
+    {
+        Cart::ifExists()?->items()->delete();
+
+        return back();
+    }
 }
