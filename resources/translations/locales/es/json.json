@@ -1,8 +1,12 @@
 {
     "Add to Cart": "Agregar al Carrito",
+    "carbon-neutral": "carbono-neutro",
+    "Confirm Order": "Confirmar Orden",
     "Desserts": "Postres",
+    "Order Total": "Total Orden",
     "Photo of :item": "Foto de :item",
     "Product list with cart": "Lista de productos con carrito",
+    "This is a :item delivery": "Esta es una entrega :item",
     "Your added items will appear here": "Los artículos añadidos aparecerán aquí",
     "Your Cart": "Su Carrito"
 }

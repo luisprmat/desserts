@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\MassPrunable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Number;
 
 #[Fillable(['session_id'])]
 class Cart extends Model
@@ -23,9 +24,16 @@ class Cart extends Model
         return $this->hasMany(CartItem::class);
     }
 
-    public function totalQuantity(): int
+    public function totalItemsCount(): int
     {
         return $this->items->sum('quantity');
+    }
+
+    public function formattedTotal()
+    {
+        $total = $this->items->sum(fn ($item) => $item->product->price_cents * $item->quantity);
+
+        return Number::currency($total / 100, 'USD');
     }
 
     public static function ifExists(): ?static

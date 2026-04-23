@@ -1,8 +1,12 @@
 {
     "Add to Cart": "Add to Cart",
+    "carbon-neutral": "carbon-neutral",
+    "Confirm Order": "Confirm Order",
     "Desserts": "Desserts",
+    "Order Total": "Order Total",
     "Photo of :item": "Photo of :item",
     "Product list with cart": "Product list with cart",
+    "This is a :item delivery": "This is a :item delivery",
     "Your added items will appear here": "Your added items will appear here",
     "Your Cart": "Your Cart"
 }
