@@ -27,4 +27,13 @@ class Cart extends Model
             'session_id' => session()->getId(),
         ]);
     }
+
+    public function incrementItem(Product $product): void
+    {
+        $this->items()->firstOrCreate([
+            'product_id' => $product->id,
+        ], [
+            'quantity' => 0,
+        ])->increment('quantity');
+    }
 }
