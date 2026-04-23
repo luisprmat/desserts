@@ -4,13 +4,13 @@
     <article>
         <img
             class="aspect-square rounded-xl object-cover"
-            src="{{ Vite::asset('resources/images/'.$product->image) }}"
+            src="{{ Vite::asset('resources/images/' . $product->image) }}"
             alt="{{ __('Photo of :item', ['item' => $product->name]) }}"
         />
-        {{-- TODO --}}
+
         <form
             style="--button-height: 3rem"
-            action=""
+            action="{{ route('cart.addOne', $product) }}"
             method="POST"
             class="-mt-[calc(var(--button-height)/2)] flex justify-center"
         >
