@@ -35,5 +35,11 @@
         ]) !!}</p>
     </div>
 
-    <button class="bg-red rounded-full px-6 py-4 font-medium text-white">{{ __('Confirm Order') }}</button>
+    <button popovertarget="order-confirmation" class="bg-red rounded-full px-6 py-4 font-medium text-white">
+        {{ __('Confirm Order') }}
+    </button>
+
+    <div class="m-auto backdrop:bg-black/50 backdrop:backdrop-blur-sm" popover id="order-confirmation">
+        i'm a cool popover
+    </div>
 </div>
