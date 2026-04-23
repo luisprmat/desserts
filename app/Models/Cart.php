@@ -3,12 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\MassPrunable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable(['session_id'])]
 class Cart extends Model
 {
+    use MassPrunable;
+
+    public function prunable(): Builder
+    {
+        return static::where('updated_at', '<=', now()->subHours(2));
+    }
+
     public function items(): HasMany
     {
         return $this->hasMany(CartItem::class);
