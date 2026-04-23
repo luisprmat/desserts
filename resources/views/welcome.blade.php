@@ -16,6 +16,7 @@
 
     @vite (['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body class="max-w-8xl mx-auto grid gap-8 bg-rose-50 px-4 py-16 sm:px-6 md:grid-cols-[1fr_400px] lg:px-8">
     <main>
         <h1 class="text-5xl font-bold">{{ __('Desserts') }}</h1>
@@ -25,6 +26,6 @@
             @endforeach
         </ul>
     </main>
-    <aside class="h-80 bg-white p-6">{{ __('Shopping Cart') }}</aside>
+    <x-cart />
 </body>
 </html>
