@@ -11,4 +11,11 @@ class Cart extends Model
     {
         return $this->hasMany(CartItem::class);
     }
+
+    public static function ifExists(): ?static
+    {
+        return self::with('items.product')
+            ->where('session_id', session()->getId())
+            ->first();
+    }
 }

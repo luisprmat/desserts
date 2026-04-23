@@ -7,6 +7,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome', [
         'products' => Product::all(),
-        'cart' => Cart::firstOrFail(),
+        'cart' => Cart::ifExists(),
     ]);
 });

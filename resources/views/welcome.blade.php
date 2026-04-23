@@ -20,13 +20,13 @@
     <main>
         <h1 class="text-5xl font-bold">{{ __('Desserts') }}</h1>
 
-        <ul>
-            @foreach ($cart->items as $item)
-                <li>
-                    {{ $item->product->name }} ({{ $item->quantity }})
-                </li>
-            @endforeach
-        </ul>
+        @if ($cart)
+            <ul>
+                @foreach ($cart->items as $item)
+                    <li>{{ $item->product->name }} ({{ $item->quantity }})</li>
+                @endforeach
+            </ul>
+        @endif
 
         <ul class="mt-10 grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
             @foreach ($products as $product)
