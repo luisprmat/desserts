@@ -4,7 +4,7 @@
     <div class="rounded-xl bg-white p-6">
         <h2 class="text-red text-2xl font-bold">{{ __('Your Cart') }} ({{ $cart->totalQuantity() }})</h2>
         @if ($cart->totalQuantity())
-            <x-cart.active />
+            <x-cart.active :$cart />
         @else
             <x-cart.empty />
         @endif

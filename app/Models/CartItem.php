@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Touches;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Number;
 
 #[Fillable(['product_id', 'quantity'])]
 #[Touches('cart')]
@@ -19,5 +21,12 @@ class CartItem extends Model
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function formattedTotal(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => Number::currency($this->quantity * $this->product->price_cents / 100, 'USD'),
+        );
     }
 }
