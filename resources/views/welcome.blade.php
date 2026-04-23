@@ -22,7 +22,7 @@
         <h1 class="text-5xl font-bold">{{ __('Desserts') }}</h1>
         <ul class="mt-10 grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
             @foreach ($products as $product)
-                <x-product :product="$product" />
+                <x-product :$product :$cart />
             @endforeach
         </ul>
     </main>

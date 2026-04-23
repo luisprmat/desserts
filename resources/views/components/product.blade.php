@@ -1,4 +1,8 @@
-@props (['product'])
+@props (['product', 'cart'])
+
+@php
+    $quantity = $cart?->quantityOf($product) ?? 0;
+@endphp
 
 <li>
     <article>
@@ -8,21 +12,55 @@
             alt="{{ __('Photo of :item', ['item' => $product->name]) }}"
         />
 
-        <form
-            style="--button-height: 3rem"
-            action="{{ route('cart.addOne', $product) }}"
-            method="POST"
-            class="-mt-[calc(var(--button-height)/2)] flex justify-center"
-        >
-            @csrf
-            <button
-                class="hover:border-red hover:text-red flex h-(--button-height) items-center gap-2 rounded-full border border-rose-500 bg-white px-8 font-medium"
-                type="submit"
+        @if ($quantity)
+            <div
+                class="bg-red mx-auto flex w-48 -translate-y-1/2 items-center justify-center gap-4 rounded-full px-3 py-3 text-white"
             >
-                <x-icons.add-to-cart />
-                <span>{{ __('Add to Cart') }}</span>
-            </button>
-        </form>
+                <form action="">
+                    <button class="rounded-full border-2 border-white p-1">
+                        <svg
+                            class="size-2.5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 10 2"
+                        >
+                            <path fill="currentColor" d="M0 .375h10v1.25H0V.375Z" />
+                        </svg>
+                    </button>
+                </form>
+                <span class="flex-1 text-center">{{ $quantity }}</span>
+                <form action="">
+                    <button class="rounded-full border-2 border-white p-1">
+                        <svg
+                            class="size-2.5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 10 10"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"
+                            />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        @else
+            <form
+                action="{{ route('cart.addOne', $product) }}"
+                method="POST"
+                class="flex -translate-y-1/2 justify-center"
+            >
+                @csrf
+                <button
+                    class="hover:border-red hover:text-red flex items-center gap-2 rounded-full border border-rose-500 bg-white px-8 py-3 font-medium"
+                    type="submit"
+                >
+                    <x-icons.add-to-cart />
+                    <span>{{ __('Add to Cart') }}</span>
+                </button>
+            </form>
+        @endif
         <p class="mt-4 text-rose-500">{{ $product->category }}</p>
         <h2 class="text-lg font-medium">{{ $product->name }}</h2>
         <p class="text-red font-medium">{{ $product->formatted_price }}</p>

@@ -24,6 +24,11 @@ class Cart extends Model
         return $this->hasMany(CartItem::class);
     }
 
+    public function quantityOf(Product $product): int
+    {
+        return $this->items->firstWhere('product_id', $product->id)->quantity ?? 0;
+    }
+
     public function totalItemsCount(): int
     {
         return $this->items->sum('quantity');
