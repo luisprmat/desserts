@@ -16,8 +16,10 @@
             <div
                 class="bg-red mx-auto flex w-48 -translate-y-1/2 items-center justify-center gap-4 rounded-full px-3 py-3 text-white"
             >
-                <form action="">
-                    <button class="rounded-full border-2 border-white p-1">
+                <form action="{{ route('cart.removeOne', $product) }}" method="POST">
+                    @csrf
+                    @method ('PATCH')
+                    <button class="rounded-full border-2 border-white p-1" type="submit">
                         <svg
                             class="size-2.5 text-white"
                             xmlns="http://www.w3.org/2000/svg"
@@ -29,8 +31,9 @@
                     </button>
                 </form>
                 <span class="flex-1 text-center">{{ $quantity }}</span>
-                <form action="">
-                    <button class="rounded-full border-2 border-white p-1">
+                <form action="{{ route('cart.addOne', $product) }}" method="POST">
+                    @csrf
+                    <button class="rounded-full border-2 border-white p-1" type="submit">
                         <svg
                             class="size-2.5 text-white"
                             xmlns="http://www.w3.org/2000/svg"

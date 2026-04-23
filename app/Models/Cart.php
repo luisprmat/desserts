@@ -63,4 +63,20 @@ class Cart extends Model
             'quantity' => 0,
         ])->increment('quantity');
     }
+
+    public function decrementItem(Product $product): void
+    {
+        $item = $this->items->firstWhere('product_id', $product->id);
+
+        if (! $item) {
+            return;
+        }
+
+        if ($item->quantity > 1) {
+            $item->decrement('quantity');
+        } else {
+            $item->delete();
+        }
+
+    }
 }

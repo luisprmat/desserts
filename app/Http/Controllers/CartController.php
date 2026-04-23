@@ -16,4 +16,11 @@ class CartController extends Controller
 
         return back();
     }
+
+    public function removeOne(Product $product): RedirectResponse
+    {
+        Cart::ifExists()?->decrementItem($product);
+
+        return back();
+    }
 }
