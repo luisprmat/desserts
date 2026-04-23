@@ -35,7 +35,10 @@
         ]) !!}</p>
     </div>
 
-    <button popovertarget="order-confirmation" class="bg-red rounded-full px-6 py-4 font-medium text-white">
+    <button
+        popovertarget="order-confirmation"
+        class="bg-red hover:bg-red-dark rounded-full px-6 py-4 font-medium text-white transition"
+    >
         {{ __('Confirm Order') }}
     </button>
 

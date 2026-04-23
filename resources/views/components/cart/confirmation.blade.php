@@ -43,7 +43,10 @@
 
     <form action="{{ route('cart.emptyCart') }}" method="POST">
         @csrf
-        <button class="bg-red w-full rounded-full px-6 py-4 font-medium text-white" type="submit">
+        <button
+            class="bg-red hover:bg-red-dark w-full rounded-full px-6 py-4 font-medium text-white transition"
+            type="submit"
+        >
             {{ __('Start New Order') }}
         </button>
     </form>

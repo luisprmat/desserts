@@ -7,7 +7,10 @@
 <li>
     <article>
         <img
-            class="aspect-square rounded-xl object-cover"
+            @class ([
+                'aspect-square rounded-xl object-cover',
+                'border-2 border-red' => $quantity,
+            ])
             src="{{ Vite::asset('resources/images/' . $product->image) }}"
             alt="{{ __('Photo of :item', ['item' => $product->name]) }}"
         />
@@ -19,9 +22,9 @@
                 <form action="{{ route('cart.removeOne', $product) }}" method="POST">
                     @csrf
                     @method ('PATCH')
-                    <button class="rounded-full border-2 border-white p-1" type="submit">
+                    <button class="group rounded-full border-2 border-white p-1 hover:bg-white" type="submit">
                         <svg
-                            class="size-2.5 text-white"
+                            class="group-hover:text-red size-2.5 text-white"
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 10 2"
@@ -33,9 +36,9 @@
                 <span class="flex-1 text-center">{{ $quantity }}</span>
                 <form action="{{ route('cart.addOne', $product) }}" method="POST">
                     @csrf
-                    <button class="rounded-full border-2 border-white p-1" type="submit">
+                    <button class="group rounded-full border-2 border-white p-1 hover:bg-white" type="submit">
                         <svg
-                            class="size-2.5 text-white"
+                            class="group-hover:text-red size-2.5 text-white"
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 10 10"
