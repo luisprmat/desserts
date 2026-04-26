@@ -25,9 +25,9 @@ new class extends Component
 
     public function addOne(Product $product): void
     {
-        $cart = Cart::ensureExists();
+        $this->cart = Cart::ensureExists();
 
-        $cart->incrementItem($product);
+        $this->cart->incrementItem($product);
     }
 
     public function removeOne(Product $product): void
@@ -122,7 +122,7 @@ new class extends Component
         </ul>
     </main>
     <aside>
-        <div class="rounded-xl bg-white p-6">
+        <div class="sticky top-2 rounded-xl bg-white p-6">
             <h2 class="text-red text-2xl font-bold">{{ __('Your Cart') }} ({{ $cart?->totalItemsCount() ?? 0 }})</h2>
             @if ($cart?->totalItemsCount())
                 <div class="flex flex-col gap-8">
