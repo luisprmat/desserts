@@ -17,15 +17,7 @@
     @vite (['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="max-w-8xl mx-auto grid gap-8 bg-rose-50 px-4 py-16 sm:px-6 md:grid-cols-[1fr_400px] lg:px-8">
-    <main>
-        <h1 class="text-5xl font-bold">{{ __('Desserts') }}</h1>
-        <ul class="mt-10 grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-            @foreach ($products as $product)
-                <x-product :$product :$cart />
-            @endforeach
-        </ul>
-    </main>
-    <x-cart :$cart />
+<body>
+    <livewire:container />
 </body>
 </html>
