@@ -4,9 +4,10 @@ use App\Http\Controllers\CartController;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 Route::get('/', function () {
-    return view('welcome', [
+    return Inertia::render('App', [
         'products' => Product::all(),
         'cart' => Cart::ifExists(),
     ]);
