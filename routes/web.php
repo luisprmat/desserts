@@ -7,9 +7,14 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
+    $cart = Cart::ifExists();
+    if (! $cart) {
+        $cart = Cart::ensureExists();
+    }
+
     return Inertia::render('App', [
         'products' => Product::all(),
-        'cart' => Cart::ifExists(),
+        'cart' => $cart,
     ]);
 });
 

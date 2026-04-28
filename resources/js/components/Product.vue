@@ -12,9 +12,7 @@ const props = defineProps<{
 }>();
 
 const quantity = computed<number>(() => {
-    if (!props.cart) return 0;
-
-    if (!props.cart.items) return 0;
+    if (!props.cart?.items) return 0;
 
     const filtered = props.cart.items.filter((item) => item.product_id === props.product.id);
 

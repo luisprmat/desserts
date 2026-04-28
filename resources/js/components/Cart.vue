@@ -7,6 +7,8 @@ import CartEmpty from './CartEmpty.vue';
 const props = defineProps<{ cart: App.Models.Cart }>();
 
 const totalItemsCount = computed<number>(() => {
+    if (!props.cart) return 0;
+    if (!props.cart.items) return 0;
     const items = props.cart.items;
     return items.length > 0 ? items.map((item) => item.quantity).reduce((a, c) => a + c, 0) : 0;
 });
