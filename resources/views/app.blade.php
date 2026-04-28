@@ -12,7 +12,7 @@
         rel="stylesheet"
     />
 
-    @vite (['resources/js/app.js'])
+    @vite (['resources/js/app.ts'])
     <x-inertia::head>
         <title>Frontend Mentor | {{ __('Product list with cart') }}</title>
     </x-inertia::head>

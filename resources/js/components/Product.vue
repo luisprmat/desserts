@@ -1,16 +1,17 @@
-<script setup>
-import { computed } from 'vue';
+<script setup lang="ts">
 import AddToCart from '@/components/icons/AddToCart.vue';
-import { Form } from '@inertiajs/vue3';
-import { addOne, removeOne } from '@/routes/cart';
 import { formatPrice } from '@/helpers';
+import { addOne, removeOne } from '@/routes/cart';
+import { App } from '@/types';
+import { Form } from '@inertiajs/vue3';
+import { computed } from 'vue';
 
-const props = defineProps({
-    product: Object,
-    cart: Object,
-});
+const props = defineProps<{
+    product: App.Models.Product;
+    cart: App.Models.Cart;
+}>();
 
-const quantity = computed(() => {
+const quantity = computed<number>(() => {
     if (!props.cart) return 0;
 
     if (!props.cart.items) return 0;
@@ -20,7 +21,7 @@ const quantity = computed(() => {
     return filtered.length > 0 ? filtered[0].quantity : 0;
 });
 
-const getImageUrl = (name) => new URL(`/resources/images/${name}`, import.meta.url).href;
+const getImageUrl = (name: string) => new URL(`/resources/images/${name}`, import.meta.url).href;
 </script>
 
 <template>
@@ -37,7 +38,6 @@ const getImageUrl = (name) => new URL(`/resources/images/${name}`, import.meta.u
                 v-if="quantity"
                 class="bg-red mx-auto flex w-48 -translate-y-1/2 items-center justify-center gap-4 rounded-full px-3 py-3 text-white"
             >
-                <!-- route('cart.removeOne', product) -->
                 <Form v-bind="removeOne.form(product.id)" :options="{ preserveScroll: true }">
                     <button class="group rounded-full border-2 border-white p-1 hover:bg-white" type="submit">
                         <svg
@@ -51,7 +51,6 @@ const getImageUrl = (name) => new URL(`/resources/images/${name}`, import.meta.u
                     </button>
                 </Form>
                 <span class="flex-1 text-center">{{ quantity }}</span>
-                <!-- route('cart.addOne', product) -->
                 <Form v-bind="addOne.form(product.id)" :options="{ preserveScroll: true }">
                     <button class="group rounded-full border-2 border-white p-1 hover:bg-white" type="submit">
                         <svg
@@ -68,7 +67,6 @@ const getImageUrl = (name) => new URL(`/resources/images/${name}`, import.meta.u
                     </button>
                 </Form>
             </div>
-            <!-- route('cart.addOne', product) -->
             <Form
                 v-bind="addOne.form(product.id)"
                 :options="{ preserveScroll: true }"

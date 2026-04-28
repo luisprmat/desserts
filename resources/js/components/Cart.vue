@@ -1,13 +1,12 @@
-<script setup>
+<script setup lang="ts">
+import { App } from '@/types';
 import { computed } from 'vue';
 import CartActive from './CartActive.vue';
 import CartEmpty from './CartEmpty.vue';
 
-const props = defineProps({
-    cart: Object,
-});
+const props = defineProps<{ cart: App.Models.Cart }>();
 
-const totalItemsCount = computed(() => {
+const totalItemsCount = computed<number>(() => {
     const items = props.cart.items;
     return items.length > 0 ? items.map((item) => item.quantity).reduce((a, c) => a + c, 0) : 0;
 });

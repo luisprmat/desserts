@@ -1,17 +1,18 @@
-<script setup>
+<script setup lang="ts">
 import IconConfirmation from '@/components/icons/Confirmation.vue';
-import { formatPrice } from '../helpers';
-import { computed } from 'vue';
-import { Form } from '@inertiajs/vue3';
 import { emptyCart } from '@/routes/cart';
+import { App } from '@/types';
+import { Form } from '@inertiajs/vue3';
+import { computed } from 'vue';
+import { formatPrice } from '../helpers';
 
-const props = defineProps({
-    cart: Object,
-});
+const props = defineProps<{
+    cart: App.Models.Cart;
+}>();
 
-const totalPricePerItem = (item) => item.quantity * item.product.price_cents;
+const totalPricePerItem = (item: App.Models.CartItem) => item.quantity * item.product.price_cents;
 
-const totalCart = computed(() => {
+const totalCart = computed<number>(() => {
     if (!props.cart.items) return 0;
 
     const subtotals = props.cart.items.map((item) => item.quantity * item.product.price_cents);
@@ -19,7 +20,7 @@ const totalCart = computed(() => {
     return subtotals.reduce((a, c) => a + c, 0);
 });
 
-const getImageUrl = (name) => new URL(`/resources/images/${name}`, import.meta.url).href;
+const getImageUrl = (name: string) => new URL(`/resources/images/${name}`, import.meta.url).href;
 </script>
 
 <template>

@@ -1,11 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import Cart from '@/components/Cart.vue';
 import Product from '@/components/Product.vue';
+import { App } from '@/types';
 
-defineProps({
-    products: Object,
-    cart: Object,
-});
+defineProps<{
+    products: App.Models.Product[];
+    cart: App.Models.Cart;
+}>();
 </script>
 
 <template>
