@@ -29,7 +29,7 @@ const getImageUrl = (name: string) => new URL(`/resources/images/${name}`, impor
                 class="aspect-square rounded-xl object-cover"
                 :class="{ 'border-red border-2': quantity > 0 }"
                 :src="getImageUrl(product.image)"
-                :alt="`Photo of ${product.name}`"
+                :alt="$t('Photo of :item', { item: product.name })"
             />
 
             <div
@@ -76,7 +76,7 @@ const getImageUrl = (name: string) => new URL(`/resources/images/${name}`, impor
                     type="submit"
                 >
                     <AddToCart />
-                    <span>Add to Cart</span>
+                    <span>{{ $t('Add to Cart') }}</span>
                 </button>
             </Form>
             <p class="mt-4 text-rose-500">{{ product.category }}</p>

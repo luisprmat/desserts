@@ -17,7 +17,7 @@ const totalItemsCount = computed<number>(() => {
 <template>
     <aside>
         <div class="sticky top-2 rounded-xl bg-white p-6">
-            <h2 class="text-red text-2xl font-bold">Your Cart ({{ totalItemsCount }})</h2>
+            <h2 class="text-red text-2xl font-bold">{{ $t('Your Cart') }} ({{ totalItemsCount }})</h2>
             <CartActive :cart v-if="totalItemsCount > 0" />
             <CartEmpty v-else />
         </div>

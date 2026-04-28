@@ -44,6 +44,6 @@
             />
         </svg>
 
-        <p class="text-center font-medium text-rose-500">Your added items will appear here</p>
+        <p class="text-center font-medium text-rose-500">{{ $t('Your added items will appear here') }}</p>
     </div>
 </template>

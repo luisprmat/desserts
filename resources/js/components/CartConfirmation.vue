@@ -31,8 +31,8 @@ const getImageUrl = (name: string) => new URL(`/resources/images/${name}`, impor
     >
         <IconConfirmation class="text-green size-12 shrink-0" />
         <div>
-            <h2 class="text-4xl font-bold">Order Confirmed!</h2>
-            <p class="text-rose-500">We hope you enjoy your food!</p>
+            <h2 class="text-4xl font-bold">{{ $t('Order Confirmed!') }}</h2>
+            <p class="text-rose-500">{{ $t('We hope you enjoy your food!') }}</p>
         </div>
         <div class="rounded-lg bg-rose-50 px-4">
             <ul>
@@ -43,7 +43,7 @@ const getImageUrl = (name: string) => new URL(`/resources/images/${name}`, impor
                     <div class="flex items-center gap-2">
                         <img
                             :src="getImageUrl(item.product.image)"
-                            :alt="`Photo of ${item.product.name}`"
+                            :alt="$t('Photo of :item', { item: item.product.name })"
                             class="size-12 rounded-md object-cover"
                         />
                         <div>
@@ -63,7 +63,7 @@ const getImageUrl = (name: string) => new URL(`/resources/images/${name}`, impor
             </ul>
 
             <div class="flex items-center justify-between gap-4 py-6">
-                <p>Order Total</p>
+                <p>{{ $t('Order Total') }}</p>
                 <p class="text-2xl font-bold">{{ formatPrice(totalCart) }}</p>
             </div>
         </div>
@@ -73,7 +73,7 @@ const getImageUrl = (name: string) => new URL(`/resources/images/${name}`, impor
                 class="bg-red hover:bg-red-dark w-full rounded-full px-6 py-4 font-medium text-white transition"
                 type="submit"
             >
-                Start New Order
+                {{ $t('Start New Order') }}
             </button>
         </Form>
     </div>

@@ -47,20 +47,20 @@ const totalCart = computed<number>(() => {
         </ul>
 
         <div class="flex items-center justify-between gap-4">
-            <p>Order Total</p>
+            <p>{{ $t('Order Total') }}</p>
             <p class="text-2xl font-bold">{{ formatPrice(totalCart) }}</p>
         </div>
 
         <div class="flex items-center justify-center gap-2 rounded-lg bg-rose-50 p-4">
             <IconTree class="text-green size-6" />
-            <p>This is a <span class="font-bold">carbon-neutral</span> delivery</p>
+            <p v-html="$t('This is a :item delivery', { item: `<b>${$t('carbon-neutral')}</b>` })"></p>
         </div>
 
         <button
             popovertarget="order-confirmation"
             class="bg-red hover:bg-red-dark rounded-full px-6 py-4 font-medium text-white transition"
         >
-            Confirm Order
+            {{ $t('Confirm Order') }}
         </button>
 
         <CartConfirmation :cart />
